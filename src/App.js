@@ -119,7 +119,7 @@ function App() {
     var html = "";
     html += `
   <table className="results_table" cellspacing="0" cellpadding="5" border="0" align="center">
-  <tbody><tr class="odd-row">
+  <tbody><tr className="odd-row">
   <th width="16%" align="left">Google</th>
   <th width="16%" align="left">Yahoo</th>
   <th width="16%" align="left">Bing</th>
@@ -147,7 +147,7 @@ function App() {
             sb +
             '<a href="https://www.google.com/search?q=' +
             encodeURIComponent(FilterHtmlEntities(retList[i])) +
-            '" target="_blank" class="live">' +
+            '" target="_blank" className="live">' +
             FilterHtmlEntities(retList[i]) +
             "</a><br />";
         }
@@ -161,7 +161,7 @@ function App() {
             sb +
             '<a href="https://search.yahoo.com/search?p=' +
             encodeURIComponent(FilterHtmlEntities(val.key)) +
-            '" target="_blank" class="live">' +
+            '" target="_blank" className="live">' +
             FilterHtmlEntities(val.key) +
             "</a><br />";
         });
@@ -177,7 +177,7 @@ function App() {
             sb +
             '<a href="http://www.bing.com/search?q=' +
             encodeURIComponent(FilterHtmlEntities(retList[i])) +
-            '" target="_blank" class="live">' +
+            '" target="_blank" className="live">' +
             FilterHtmlEntities(retList[i]) +
             "</a><br />";
         }
@@ -193,7 +193,7 @@ function App() {
             sb +
             '<a href="https://www.youtube.com/results?search_query=' +
             encodeURIComponent(FilterHtmlEntities(retList[i])) +
-            '" target="_blank" class="live">' +
+            '" target="_blank" className="live">' +
             FilterHtmlEntities(retList[i]) +
             "</a><br />";
         }
@@ -209,7 +209,7 @@ function App() {
             sb +
             '<a href="http://www.amazon.com/s/?field-keywords=' +
             encodeURIComponent(FilterHtmlEntities(retList[i])) +
-            '" target="_blank" class="live">' +
+            '" target="_blank" className="live">' +
             FilterHtmlEntities(retList[i]) +
             "</a><br />";
         }
@@ -225,7 +225,7 @@ function App() {
             sb +
             '<a href="http://www.ebay.com/sch/i.html?_nkw=' +
             encodeURIComponent(FilterHtmlEntities(retList[i])) +
-            '" target="_blank" class="live">' +
+            '" target="_blank" className="live">' +
             FilterHtmlEntities(retList[i]) +
             "</a><br />";
         }
