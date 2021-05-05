@@ -1,16 +1,13 @@
 import { useState } from "react";
 import $ from "jquery";
 import "./App.css";
-
 function App() {
   const [results, updateResults] = useState({ __html: "" });
   const [searchValue, setSearchValue] = useState();
-
   const GetRelatedTerms = (keyword, site, callback) => {
-    if (keyword != "") {
+    if (keyword !== "") {
       var querykeyword = keyword;
       var website = site;
-
       if (website === "bing") {
         console.log("bing");
         $.ajax({
@@ -25,7 +22,6 @@ function App() {
           success: callback,
         });
       }
-
       if (website === "google") {
         console.log("google");
         $.ajax({
@@ -39,7 +35,6 @@ function App() {
           success: callback,
         });
       }
-
       if (website === "youtube") {
         console.log("youtube");
         $.ajax({
@@ -54,7 +49,6 @@ function App() {
           success: callback,
         });
       }
-
       if (website === "yahoo") {
         console.log("yahoo");
         $.ajax({
@@ -68,7 +62,6 @@ function App() {
           success: callback,
         });
       }
-
       if (website === "ebay") {
         console.log("ebay");
         $.ajax({
@@ -83,7 +76,6 @@ function App() {
           success: callback,
         });
       }
-
       if (website === "amazon") {
         console.log("amazon");
         $.ajax({
@@ -137,7 +129,6 @@ function App() {
   </tr>
      <tr><td id="google"></td><td id="yahoo"></td><td id="bing"></td><td id="youtube"></td><td id="amazon"></td><td id="ebay"></td></tr>
     </tbody></table>`;
-
     if (searchTerm === "") {
       html = `
       <table style="display:none" className="results_table hidden" cellspacing="0" cellpadding="5" border="0" align="center">
@@ -149,12 +140,9 @@ function App() {
       updateResults({ __html: html });
       GetRelatedTerms(searchTerm, "google", function (res) {
         var retList = res[1];
-
         var i = 0;
         var sb = "";
         for (i = 0; i < retList.length; i++) {
-          var currents = FilterHtmlEntities(retList[i]);
-
           sb =
             sb +
             '<a href="https://www.google.com/search?q=' +
@@ -166,7 +154,6 @@ function App() {
         document.getElementById("google").innerHTML = "";
         document.getElementById("google").innerHTML = sb;
       });
-
       GetRelatedTerms(searchTerm, "yahoo", function (res) {
         var sb = "";
         var i = 0;
@@ -182,14 +169,11 @@ function App() {
         document.getElementById("yahoo").innerHTML = "";
         document.getElementById("yahoo").innerHTML = sb;
       });
-
       GetRelatedTerms(searchTerm, "bing", function (res) {
         var retList = res[1];
         var i = 0;
         var sb = "";
         for (i = 0; i < retList.length; i++) {
-          var currents = FilterHtmlEntities(retList[i]);
-
           sb =
             sb +
             '<a href="http://www.bing.com/search?q=' +
@@ -203,12 +187,9 @@ function App() {
       });
       GetRelatedTerms(searchTerm, "youtube", function (res) {
         var retList = res[1];
-
         var i = 0;
         var sb = "";
         for (i = 0; i < retList.length; i++) {
-          var currents = FilterHtmlEntities(retList[i]);
-
           sb =
             sb +
             '<a href="https://www.youtube.com/results?search_query=' +
@@ -220,14 +201,11 @@ function App() {
         document.getElementById("youtube").innerHTML = "";
         document.getElementById("youtube").innerHTML = sb;
       });
-
       GetRelatedTerms(searchTerm, "amazon", function (res) {
         var retList = res[1];
         var i = 0;
         var sb = "";
         for (i = 0; i < retList.length; i++) {
-          var currents = FilterHtmlEntities(retList[i]);
-
           sb =
             sb +
             '<a href="http://www.amazon.com/s/?field-keywords=' +
@@ -239,15 +217,11 @@ function App() {
         document.getElementById("amazon").innerHTML = "";
         document.getElementById("amazon").innerHTML = sb;
       });
-
       GetRelatedTerms(searchTerm, "ebay", function (res1) {
         var retList = res1.res.sug;
-
         var i = 0;
         var sb = "";
         for (i = 0; i < retList.length; i++) {
-          var currents = FilterHtmlEntities(retList[i]);
-
           sb =
             sb +
             '<a href="http://www.ebay.com/sch/i.html?_nkw=' +
@@ -286,5 +260,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
