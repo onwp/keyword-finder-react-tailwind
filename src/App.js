@@ -156,7 +156,6 @@ function App() {
       });
       GetRelatedTerms(searchTerm, "yahoo", function (res) {
         var sb = "";
-        var i = 0;
         $.each(res.gossip.results, function (i, val) {
           sb =
             sb +
