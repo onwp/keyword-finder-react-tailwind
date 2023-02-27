@@ -73,6 +73,9 @@ function App() {
             _dg: "1",
             sId: "0",
           },
+          xhrFields: {
+            withCredentials: true
+          },
           success: callback,
         });
       }
