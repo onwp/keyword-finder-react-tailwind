@@ -128,15 +128,14 @@ function App() {
   <th width="16%" align="left">Bing</th>
   <th width="16%" align="left">Youtube</th>
   <th width="16%" align="left">Amazon</th>
-  <th width="16%" align="left">Ebay</th>
   </tr>
-     <tr><td id="google"></td><td id="yahoo"></td><td id="bing"></td><td id="youtube"></td><td id="amazon"></td><td id="ebay"></td></tr>
+     <tr><td id="google"></td><td id="yahoo"></td><td id="bing"></td><td id="youtube"></td><td id="amazon"></td></tr>
     </tbody></table>`;
     if (searchTerm === "") {
       html = `
       <table style="display:none" className="results_table hidden" cellspacing="0" cellpadding="5" border="0" align="center">
       <tbody className="hidden">
-         <tr className="hidden"><td id="google"></td><td id="yahoo"></td><td id="bing"></td><td id="youtube"></td><td id="amazon"></td><td id="ebay"></td></tr>
+         <tr className="hidden"><td id="google"></td><td id="yahoo"></td><td id="bing"></td><td id="youtube"></td><td id="amazon"></td></tr>
         </tbody></table>`;
       updateResults({ __html: html });
     } else {
@@ -219,22 +218,7 @@ function App() {
         document.getElementById("amazon").innerHTML = "";
         document.getElementById("amazon").innerHTML = sb;
       });
-      GetRelatedTerms(searchTerm, "ebay", function (res1) {
-        var retList = res1.res.sug;
-        var i = 0;
-        var sb = "";
-        for (i = 0; i < retList.length; i++) {
-          sb =
-            sb +
-            '<a href="http://www.ebay.com/sch/i.html?_nkw=' +
-            encodeURIComponent(FilterHtmlEntities(retList[i])) +
-            '" target="_blank" className="live">' +
-            FilterHtmlEntities(retList[i]) +
-            "</a><br />";
-        }
-        document.getElementById("ebay").innerHTML = "";
-        document.getElementById("ebay").innerHTML = sb;
-      });
+
     }
   };
   return (
