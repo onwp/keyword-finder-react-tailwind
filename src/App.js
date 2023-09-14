@@ -79,20 +79,6 @@ function App() {
           success: callback,
         });
       }
-      if (website === "amazon") {
-        console.log("amazon");
-        $.ajax({
-          url: "https://completion.amazon.com/search/complete",
-          dataType: "jsonp",
-          data: {
-            q: querykeyword,
-            method: "completion",
-            "search-alias": "aps",
-            mkt: "1",
-          },
-          success: callback,
-        });
-      }
     }
   };
   const FilterHtmlEntities = (input) => {
@@ -127,15 +113,14 @@ function App() {
   <th width="16%" align="left">Yahoo</th>
   <th width="16%" align="left">Bing</th>
   <th width="16%" align="left">Youtube</th>
-  <th width="16%" align="left">Amazon</th>
   </tr>
-     <tr><td id="google"></td><td id="yahoo"></td><td id="bing"></td><td id="youtube"></td><td id="amazon"></td></tr>
+     <tr><td id="google"></td><td id="yahoo"></td><td id="bing"></td><td id="youtube"></td></tr>
     </tbody></table>`;
     if (searchTerm === "") {
       html = `
       <table style="display:none" className="results_table hidden" cellspacing="0" cellpadding="5" border="0" align="center">
       <tbody className="hidden">
-         <tr className="hidden"><td id="google"></td><td id="yahoo"></td><td id="bing"></td><td id="youtube"></td><td id="amazon"></td></tr>
+         <tr className="hidden"><td id="google"></td><td id="yahoo"></td><td id="bing"></td><td id="youtube"></td></tr>
         </tbody></table>`;
       updateResults({ __html: html });
     } else {
@@ -202,23 +187,6 @@ function App() {
         document.getElementById("youtube").innerHTML = "";
         document.getElementById("youtube").innerHTML = sb;
       });
-      GetRelatedTerms(searchTerm, "amazon", function (res) {
-        var retList = res[1];
-        var i = 0;
-        var sb = "";
-        for (i = 0; i < retList.length; i++) {
-          sb =
-            sb +
-            '<a href="http://www.amazon.com/s/?field-keywords=' +
-            encodeURIComponent(FilterHtmlEntities(retList[i])) +
-            '" target="_blank" className="live">' +
-            FilterHtmlEntities(retList[i]) +
-            "</a><br />";
-        }
-        document.getElementById("amazon").innerHTML = "";
-        document.getElementById("amazon").innerHTML = sb;
-      });
-
     }
   };
   return (
