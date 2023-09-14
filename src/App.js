@@ -195,7 +195,7 @@ function App() {
         <div className="w-full bg-white shadow-md rounded px-8 py-8 pt-8">
           <h1 className="text-2xl mb-7">Keyword Finder</h1>
           <p className="mb-5">
-            A real-time keyword finder shows related terms based on your search
+            A real-time keyword finder shows related keywords based on your search
           </p>
           <form action="">
             <input
