@@ -5,9 +5,7 @@ A powerful React-based web application for generating relevant keywords and sear
 
 ## Features
 
-- 🔍 Smart keyword extraction from input text
 - 🎯 Generates related search terms and variations
-- 📊 Provides keyword frequency analysis
 - 💫 Modern, responsive UI built with Tailwind CSS
 - ⚡ Fast and efficient processing
 - 🎨 Clean and intuitive user interface
