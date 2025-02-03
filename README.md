@@ -57,8 +57,8 @@ The build files will be created in the `build/` directory.
 
 1. Navigate to the application in your web browser
 2. Paste or type your content into the text input area
-3. View and analyze the generated keywords and their metrics
-4. Export or copy the keywords as needed
+3. View the generated keywords
+4. Copy the keywords as needed
 
 ## Contributing
 
